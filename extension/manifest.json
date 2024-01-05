@@ -1,0 +1,45 @@
+{
+	"name": "Critiq: Unleash the Power of Perspective!",
+	"description": "🚀 Dive into the realm of diverse opinions effortlessly with Critiq, your ultimate Chrome Extension for exploring opposing views. Seamlessly discover insightful summaries from Perplexity Search right at your fingertips. Empower your understanding, foster open-mindedness, and navigate controversy with ease. Embrace the world of perspectives with Critiq – because knowledge knows no bounds!",
+	"version": "1.0",
+	"manifest_version": 3,
+	"action": {
+		"default_title": "Critiq: Unleash the Power of Perspective!",
+		"default_popup": "assets/logo.png"
+	},
+	"icons": {
+		"16": "assets/logo.png"
+	},
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"/assets/*"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.google.com/*"
+			],
+			"js": [
+				"content.js"
+			]
+		}
+	],
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"permissions": [
+		"background",
+		"contextMenus",
+		"bookmarks",
+		"tabs",
+		"storage",
+		"history"
+	]
+}
