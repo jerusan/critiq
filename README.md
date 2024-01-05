@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Critiq Chrome Extension
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Critiq is a Chrome extension designed to help users explore opposing views on controversial topics directly within Google search results. Empower your understanding, foster open-mindedness, and navigate controversy effortlessly with Critiq.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   git clone https://github.com/jerusan/critiq.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Navigate to the extension folder:
 
-## Learn More
+   ```bash
+   cd critiq
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. Build the extension:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run export
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Load the extension in Chrome:
+   - Open Chrome and navigate to `chrome://extensions/`.
+   - Enable "Developer mode" in the top right.
+   - Click "Load unpacked" and select the `extension` folder.
+
+3. Perform a Google search on a controversial topic, ending the query with a '?'.
+
+4. Critiq UI will append itself to the search results, displaying a summary of opposing views.
+
+## Dependencies
+
+- [Next.js](https://nextjs.org/): React framework for building web applications.
+- [Webpack](https://webpack.js.org/): Module bundler for JavaScript applications.
+- [Tailwind CSS](https://tailwindcss.com/): Utility-first CSS framework.
+- [React Icons](https://react-icons.github.io/react-icons/): Icons for React applications.
+
+## Manifest Configuration
+
+The extension's `manifest.json` file defines its structure, permissions, and background processes. Key configurations include:
+
+- **Content Scripts**: Executes the content script (`content.js`) on Google search pages.
+- **Background Script**: Utilizes a service worker (`background.js`) for background processing.
+- **Web Accessible Resources**: Allows access to extension assets on all URLs.
+
+## Components
+
+Critiq consists of three main React components:
+
+1. **CritiqExtension**: The main component handling the integration with Google search and displaying the UI when a controversial topic is detected.
+
+2. **Header**: Renders the header section of the extension, displaying the Critiq logo.
+
+3. **Body**: Displays the main content, including the search query and the summary of opposing views. It also provides a button to delve into detailed counterpoints.
