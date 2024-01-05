@@ -14,7 +14,7 @@
     "start": "next start",
     "lint": "next lint",
     "bundle": "webpack build --mode production --config ./webpack.config.js",
-    "export": "next build && npm run bundle"
+    "export": "next build && npm run bundle && cp -r ./src/assets ./extension"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.23.3",
