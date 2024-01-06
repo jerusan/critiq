@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-    distDir: 'extension/out',
+    distDir: 'extension/dist',
 }
 
 module.exports = nextConfig
-
-//     output: 'export',

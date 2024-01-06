@@ -1,6 +1,9 @@
 const getSummaryFromPerplexity = async (query: string) => {
+	//TODO: pass via env variables
+	const hostNetwork = 'http://127.0.0.1';
+	const hostPort = '5000';
 	try {
-	  const response = await fetch(`http://127.0.0.1:5000/process-chat?query=${encodeURIComponent(query)}`, {
+	  const response = await fetch(`${hostNetwork}:${hostPort}/process-chat?query=${encodeURIComponent(query)}`, {
 		method: 'GET',
 		headers: {
 		  'Content-Type': 'application/json',
