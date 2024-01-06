@@ -9,7 +9,7 @@ interface DisplayTextWithIconProps {
 
 const DisplayTextWithIcon: React.FC<DisplayTextWithIconProps> = ({ iconUrl, icon, text }) => (
   <div className="flex items-center">
-    {iconUrl && <img src={chrome.runtime.getURL(iconUrl)} alt="Icon" width="32" height="32" className="bg-gray-300 p-2 border border-black rounded-3xl" />}
+    {iconUrl && <img src={chrome.runtime.getURL(iconUrl)} alt="Icon" width="26" height="26" className="bg-gray-300 border border-black rounded-3xl" />}
     {icon && <IconContext.Provider value={{ size: '22' }}>
       {icon}
     </IconContext.Provider>}

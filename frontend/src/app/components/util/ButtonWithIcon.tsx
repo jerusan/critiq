@@ -12,7 +12,7 @@ const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({ icon, label, text, onCl
     <button
       type="button"
       title={label}
-      className="md:hover:bg-offsetPlus p-1 border border-white rounded-md bg-gray-600"
+      className="md:hover:bg-offsetPlus p-1 border border-white bg-accent rounded-md bg-gray-600"
       onClick={onClick}
     >
       <div className="flex items-center">

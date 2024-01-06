@@ -15,7 +15,7 @@ const CritiqExtension: React.FC = () => {
         handleTextarea();
     }, []);
 
-    const handleTextarea = () => {
+    const handleTextarea = async () => {
         const googleSearchFieldElement = document.getElementById(
             "APjFqb"
         ) as HTMLTextAreaElement | null;
@@ -28,13 +28,20 @@ const CritiqExtension: React.FC = () => {
 
                 if (showDialog) {
                     setSearchQuery(googleSearchQuery);
-                    chrome.runtime.sendMessage(
-                        {
-                            action: "queryReady",
-                            text: googleSearchQuery,
-                        },
-                        handleResponse
-                    );
+
+                    const port = chrome.runtime.connect({ name: 'content-script' });
+
+                    port.postMessage({
+                        action: 'queryReady',
+                        text: googleSearchQuery,
+                    });
+
+                    port.onMessage.addListener((perplexityResponse) => {
+                        console.log('Got response to content script query');
+                        console.log(perplexityResponse);
+                        setSummary(perplexityResponse);
+                    });
+
                 } else {
                     console.log("Not showing content for non-controversial topics");
                 }
@@ -51,14 +58,9 @@ const CritiqExtension: React.FC = () => {
         return isControversy;
     };
 
-    const handleResponse = (perplexityResponse: any) => {
-        console.log("Summary from Perplexity API: ", perplexityResponse);
-        setSummary(perplexityResponse);
-    };
-
     return <>
         {isControversial &&
-            <div className="max-w-md mx-auto  bg-[#0d1117] rounded-md shadow-md p-6 text-white">
+            <div className="max-w-md mx-auto  bg-[#0d1117] rounded-md shadow-md p-2 text-white">
                 <Header />
                 <Body query={searchQuery} summary={summary} />
             </div >
