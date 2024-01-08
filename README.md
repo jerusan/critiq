@@ -41,7 +41,7 @@ It has the following components:
 
 The content script detects controversial queries, sends them to the backend via the background script, and displays the summary fetched from Perplexity.
 
-[Watch the Demo Video](https://click.email.vimeo.com/?qs=1fb29cec288852871df832be316af4e41238798206675af8b9c0517a434a267b10fc3a078eef374e15bf9c7578c2f563b1dd8f7ad4af45fda2d1441ffc92773e)
+[Watch the Demo Video](https://vimeo.com/900852259)
 
 
 ## Prerequisites
