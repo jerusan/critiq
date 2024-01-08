@@ -7,7 +7,6 @@ import { HiHandThumbUp, HiHandThumbDown } from "react-icons/hi2";
 import { MdOutlineSettings } from "react-icons/md";
 import { FaRegCopy } from "react-icons/fa";
 
-
 const Header: React.FC = () => {
     return (
         <div className="flex justify-between text-white">
