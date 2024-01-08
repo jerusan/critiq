@@ -31,9 +31,22 @@ const CritiqExtension: React.FC = () => {
                 port.onMessage.addListener((perplexityResponse) => {
                     console.log('Got response to content script query');
                     console.log(perplexityResponse);
-                    if (perplexityResponse && perplexityResponse.summary !== "") {
+                  
+                    if (!perplexityResponse) {
+                      console.error('Invalid response received');
+                      return;
+                    }
+                  
+                    if (perplexityResponse.error) {
+                      console.error(`Error: ${perplexityResponse.error}`);
+                      return;
+                    }
+
+                    if (perplexityResponse.isControversial) {
                         setSummary(perplexityResponse.summary);
                         setSearchQuery(perplexityResponse.controversialQuery);
+                    } else {
+                        setSearchQuery("Not a controversial topic");
                     }
                 });
             } else {

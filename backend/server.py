@@ -3,7 +3,6 @@ import os
 import time
 from openai import OpenAI
 
-
 def get_opposing_view_query(query: str):
     client = OpenAI()
 
@@ -21,7 +20,7 @@ def get_opposing_view_query(query: str):
         assistant_id=ASSISTANT_ID,
     )
 
-    print("Waiting for assistnat's response...")
+    print("Waiting for assistant's response...")
     while True:
         run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
 
@@ -39,7 +38,7 @@ def get_opposing_view_query(query: str):
             time.sleep(5)
 
 def get_opposing_view_summary(query: str):
-    PERPLEX_API_KEY = os.environ.get("PERPLEX_API_KEY")
+    PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY")
 
     url = "https://api.perplexity.ai/chat/completions"
     
@@ -64,7 +63,7 @@ def get_opposing_view_summary(query: str):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "authorization": "Bearer {}".format(PERPLEX_API_KEY)
+        "authorization": "Bearer {}".format(PERPLEXITY_API_KEY)
     }
    
     try:

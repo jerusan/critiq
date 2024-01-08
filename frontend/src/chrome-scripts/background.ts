@@ -3,7 +3,7 @@ const getSummaryFromPerplexity = async (query: string) => {
 	const hostNetwork = 'http://127.0.0.1';
 	const hostPort = '5000';
 	try {
-	  const response = await fetch(`${hostNetwork}:${hostPort}/process-chat?query=${encodeURIComponent(query)}`, {
+	  const response = await fetch(`${hostNetwork}:${hostPort}/get-controversy-summary?query=${encodeURIComponent(query)}`, {
 		method: 'GET',
 		headers: {
 		  'Content-Type': 'application/json',
@@ -18,6 +18,7 @@ const getSummaryFromPerplexity = async (query: string) => {
 	  return data
 	} catch (error) {
 	  console.error('Error fetching data:', error);
+	  return null
 	}
   };
 
