@@ -35,7 +35,7 @@ chrome.runtime.onConnect.addListener((port) => {
             try {
                 const resp = await getSummaryFromPerplexity(request.text);
                 console.log(resp);
-                port.postMessage(resp.summary);
+                port.postMessage(resp);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

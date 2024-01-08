@@ -5,10 +5,10 @@
 	"manifest_version": 3,
 	"action": {
 		"default_title": "Critiq: Unleash the Power of Perspective!",
-		"default_popup": "assets/logo.png"
+		"default_popup": "assets/logo-arrow.png"
 	},
 	"icons": {
-		"16": "assets/logo.png"
+		"16": "assets/logo-arrow.png"
 	},
 	"web_accessible_resources": [
 		{

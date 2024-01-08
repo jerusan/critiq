@@ -2,27 +2,23 @@ import React, { ReactNode } from 'react';
 
 interface ButtonWithIconProps {
   icon: ReactNode;
+  rightSideDivider?: boolean;
+  style: string;
   label?: string;
   text?: string;
   onClick?: () => void;
 }
 
-const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({ icon, label, text, onClick }) => (
-
-    <button
-      type="button"
-      title={label}
-      className="md:hover:bg-offsetPlus p-1 border border-white bg-accent rounded-md bg-gray-600"
-      onClick={onClick}
-    >
-      <div className="flex items-center">
-        {icon}
-        <div className="mx-1"> </div>
-        {text && <div className="text-align-center">{text}</div>}
-      </div>
-  
+const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({ icon, label, text, onClick, style, rightSideDivider }) => (
+    <div className='flex items-center'>
+    <button className= {style} type="button" onClick={onClick} title={label}>
+      {icon}
     </button>
-  
+    {text && <span>{text} </span>}
+   
+    {rightSideDivider && <div className="text-2xl text-white cursor-default">|</div>}
+
+    </div>
 )
 
 export default ButtonWithIcon;
