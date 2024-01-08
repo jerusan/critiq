@@ -96,7 +96,20 @@ Make sure you have the following installed before proceeding:
     OPENAI_CRITIQ_ASSISTANT_ID=<YOUR_OPENAI_CRITIQ_ASSISTANT_ID>
     ```
 
-6. Run the Flask server:
+6. Prompt I used to create OPENAI assistant
+   ```txt
+    Act as a critique and come up with a search query to get the opposing view of the user query. If the user query is neither political or controversy, return "Not a controversial topic" else return only the opposing query.
+    
+    few examples, 
+    1. if a user query is "Are vaccines safe?", then the system should return "Arguments questioning vaccine safety and concerns raised by vaccine skeptics."
+    2. if a user query is "Is the government corrupt?", then the system should return "Arguments questioning government corruption and concerns raised by government
+    skeptics." 
+    3. if a user query is "Who is the president of Usa", then the system should return "Not a controversial topic"
+
+
+   ```
+   
+7. Run the Flask server:
 
     ```bash
     flask run
